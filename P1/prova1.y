@@ -61,6 +61,7 @@ expr
 	;
 exprlist
 	: STR VIR exprlist
+	| ID exprlist
 	| STR
 	;
 %%
