@@ -25,6 +25,7 @@ void yyerror(const char *msg);
 %token RPAR
 %token  CONCAT
 %token LENGTH
+%token VIR
 
 %start program
 
@@ -52,13 +53,14 @@ expr
 	| expr MINUS expr 
 	| expr TIMES expr 
 	| expr DIV expr 
-	| LPAR expr RPAR
-	| LENGHT STR expr
+	| LPAREN expr RPAREN
+	| LENGHT exprlist
+	| CONCAT LPAREN exprlist RPAREN
 	| NUM
 	| STR
 	;
 exprlist
-	: CONCAT exprlist
-	| STR exprlist
+	: STR VIR exprlist
+	| STR
 	;
 %%
