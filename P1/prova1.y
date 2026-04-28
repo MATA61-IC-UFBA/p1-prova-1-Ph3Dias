@@ -47,7 +47,7 @@ stmt
 ;
 exprlist
 	: expr
-	| exprlist VIR expr
+	| expr VIR exprlist
 	;
 
 expr
@@ -58,7 +58,7 @@ expr
 	| expr DIV expr 
 	| LPAREN expr RPAREN
 	| LENGTH LPAREN expr RPAREN
-	| CONCAT LPAREN expr VIR exprlist RPAREN
+	| CONCAT LPAREN exprlist RPAREN
 	| NUM
 	| STR
 	| IDENT
